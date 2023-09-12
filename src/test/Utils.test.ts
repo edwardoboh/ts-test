@@ -1,8 +1,12 @@
 import { convertToUpper } from "../app/Utils"
 
-describe('Set up test Suite', () => {
-    test('Convert String to Uppercase', () => {
-        const result = convertToUpper('abc')
-        expect(result).toBe('ABC')
+describe('Utils test Suite', () => {
+    it('Should convert string to Uppercase', () => {
+        const sut = convertToUpper;
+        const expected = 'ABC';
+
+        const actual = sut('abc')
+
+        expect(actual).toBe(expected)
     })
 })
