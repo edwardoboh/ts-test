@@ -48,6 +48,17 @@ describe("All test for the password checker: ", () => {
         expect(actual.reasons).not.toContain(PasswordError.NO_LOWER_CASE)
     })
 
+    it("Should be invalid if Admin password with no number", () => {
+        const actual = sut.checkAdminPassword('abdec')
+        expect(actual.valid).toBe(false)
+        expect(actual.reasons).toContain(PasswordError.NO_NUMBER)
+    })
+
+    it("Should be valid for admin password with number", () => {
+        const actual = sut.checkAdminPassword('123ADs')
+        expect(actual.reasons).not.toContain(PasswordError.NO_NUMBER)
+    })
+
     it("Should pass if password is complex and complete", () => {
         const actual = sut.checkPassword('123456ADaa')
         expect(actual.valid).toBe(true)
