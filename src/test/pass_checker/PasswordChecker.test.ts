@@ -21,7 +21,27 @@ describe("All test for the password checker: ", () => {
     })
 
     it("Should pass for password up to 8 chars", () => {
-        const actual = sut.checkPassword('12345678')
+        const actual = sut.checkPassword('12345678Aa')
+        expect(actual).toBe(true)
+    })
+
+    it("Should fail if it doesn't contain an uppercase char", () => {
+        const actual = sut.checkPassword('12345678a')
+        expect(actual).toBe(false)
+    })
+
+    it("Should pass if it contains an uppercase char", () => {
+        const actual = sut.checkPassword('12345678Aa')
+        expect(actual).toBe(true)
+    })
+
+    it("Should fail for password with no lowercase", () => {
+        const actual = sut.checkPassword('12345678A')
+        expect(actual).toBe(false)
+    })
+
+    it("Should pass for password with lowercase char", () => {
+        const actual = sut.checkPassword('12345678Aa')
         expect(actual).toBe(true)
     })
 })
