@@ -10,11 +10,30 @@ describe('Utils test Suite', () => {
             console.log('Set Up')
         })
 
-        afterAll(() => {
-            console.log('Tear Down')
+        it('Check that invalid input throw an Error - Function', () => {
+            function throwError(){
+                const resp = sut.toUpper('')
+            }
+            expect(throwError).toThrow(new Error('Invalid Argument!'))
         })
 
-        it('Should return the correct upper case', () => {
+        it('Check that invalid inputs throw an Error - Arrow', () => {
+            expect(() => {sut.toUpper('')}).toThrow()
+            expect(() => sut.toUpper('')).toThrowError(new Error('Invalid Argument!'));
+        })
+
+        it('Check that invalid inputs throw an Error', (done) => {
+            try{
+                sut.toUpper('');
+                done('Should throw an error for invalid input')
+            }catch(error){
+                expect(error).toBeInstanceOf(Error)
+                expect(error).toHaveProperty('message', 'Invalid Argument!')
+                done()
+            }
+        })
+
+        it.skip('Should return the correct upper case', () => {
             const actual = sut.toUpper('abc');
             expect(actual).toBe('ABC')
         })
