@@ -2,7 +2,7 @@ import { StringUtils, convertToUpper, getStringInfo } from "../app/Utils"
 
 describe('Utils test Suite', () => {
 
-    describe.only('String Util Class Test',  () => {
+    describe('String Util Class Test',  () => {
         let sut: StringUtils;
 
         beforeEach(() => {
@@ -10,7 +10,7 @@ describe('Utils test Suite', () => {
             console.log('Set Up')
         })
 
-        it.only('Check that invalid input throw an Error - Function', () => {
+        it('Check that invalid input throw an Error - Function', () => {
             function throwError(){
                 const resp = sut.toUpper('')
             }

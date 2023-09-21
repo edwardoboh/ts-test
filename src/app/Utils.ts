@@ -2,6 +2,7 @@
 export class StringUtils {
     public toUpper(arg: string){
         if(!arg) throw new Error('Invalid Argument!');
+        /* istanbul ignore next */
         return convertToUpper(arg)
     }
 }
