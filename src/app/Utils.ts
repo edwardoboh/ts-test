@@ -1,4 +1,10 @@
 
+export class StringUtils {
+    public toUpper(arg: string){
+        return convertToUpper(arg)
+    }
+}
+
 export function convertToUpper(input: string): string{
     return input.toUpperCase()
 }

@@ -1,6 +1,25 @@
-import { convertToUpper, getStringInfo } from "../app/Utils"
+import { StringUtils, convertToUpper, getStringInfo } from "../app/Utils"
 
 describe('Utils test Suite', () => {
+
+    describe.only('String Util Class Test',  () => {
+        let sut: StringUtils;
+
+        beforeEach(() => {
+            sut = new StringUtils()
+            console.log('Set Up')
+        })
+
+        afterAll(() => {
+            console.log('Tear Down')
+        })
+
+        it('Should return the correct upper case', () => {
+            const actual = sut.toUpper('abc');
+            expect(actual).toBe('ABC')
+        })
+    })
+
     it('Should convert string to Uppercase', () => {
         const sut = convertToUpper;
         const expected = 'ABC';
@@ -39,7 +58,7 @@ describe('Utils test Suite', () => {
 
     });
 
-    describe.only('parameterized test for convertToUpper', () => {
+    describe('parameterized test for convertToUpper', () => {
         it.each([
             {input: 'my-name', expected: 'MY-NAME'},
             {input: 'My-Name', expected: 'MY-NAME'},
