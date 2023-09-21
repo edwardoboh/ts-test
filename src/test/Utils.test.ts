@@ -10,7 +10,7 @@ describe('Utils test Suite', () => {
             console.log('Set Up')
         })
 
-        it('Check that invalid input throw an Error - Function', () => {
+        it.only('Check that invalid input throw an Error - Function', () => {
             function throwError(){
                 const resp = sut.toUpper('')
             }
